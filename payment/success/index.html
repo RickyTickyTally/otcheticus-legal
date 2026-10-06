@@ -1,0 +1,38 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Оплата прошла — Отчётикус</title><style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5d6675;--line:#e3e6ec;--accent:#2f5bd3;--soft:#f5f7fb;--ph:#fff3c4}
+@media (prefers-color-scheme:dark){:root{--bg:#14171d;--fg:#e8ebf1;--muted:#9aa3b2;--line:#2a2f3a;--accent:#7ea2ff;--soft:#1b1f27;--ph:#4a3f10}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 40px}
+header.top{border-bottom:1px solid var(--line);padding:12px 16px}header.top a{color:var(--fg);text-decoration:none;font-weight:600}
+h1{font-size:1.55rem;line-height:1.25;margin:.4em 0 .3em}h2{font-size:1.18rem;margin:1.6em 0 .5em}h3{font-size:1.05rem}
+p,li{overflow-wrap:anywhere}a{color:var(--accent)}
+.meta{color:var(--muted);font-size:.9rem;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0 18px}
+.meta b{color:var(--fg);font-weight:600}
+.ph{background:var(--ph);border-radius:4px;padding:0 3px}
+blockquote{margin:14px 0;padding:10px 14px;border-left:3px solid #e0a400;background:var(--soft);border-radius:0 8px 8px 0}
+.table{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:8px;vertical-align:top;text-align:left}th{background:var(--soft)}
+@media (max-width:640px){.table table,.table thead,.table tbody,.table tr,.table td{display:block;width:100%}
+.table thead{display:none}.table tr{border:1px solid var(--line);border-radius:10px;margin:0 0 12px;padding:6px 10px}
+.table td{border:0;padding:4px 0}.table td:before{content:attr(data-label);display:block;color:var(--muted);font-size:.8rem}}
+nav.docs{margin-top:32px;border-top:1px solid var(--line);padding-top:14px}nav.docs ul{padding-left:18px}
+.cards a{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;text-decoration:none;color:var(--fg);background:var(--soft)}
+.cards small{display:block;color:var(--muted)}
+.hero{padding:8px 0 4px}.lead{font-size:1.08rem}
+a.cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:12px;margin:6px 0}
+@media (prefers-color-scheme:dark){a.cta{color:#10131a}}
+ol li,ul li{margin:4px 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;padding:16px;max-width:760px;margin:0 auto}
+</style></head><body><header class="top"><a href="../../">📄 Отчётикус</a> · <a href="../../legal/">Документы</a> · <a href="../../prices/">Цены</a></header><main><h1>Оплата прошла</h1><p>Спасибо! Оплата получена — работа уже поставлена в очередь. Вернитесь в бот: готовый файл придёт туда, а также появится в разделе «Мои работы».</p><p><a class='cta' href='https://t.me/otcheticusbot'>Вернуться в бот</a></p><script>
+(function () {
+  var q = new URLSearchParams(location.search), inv = q.get("InvId") || q.get("inv_id"),
+      sig = q.get("SignatureValue") || q.get("signaturevalue");
+  if (!inv || !sig || !/^\d{1,12}$/.test(inv) || !/^[0-9a-fA-F]{64}$/.test(sig)) return;
+  var bytes = "";
+  for (var i = 0; i < 64; i += 2) bytes += String.fromCharCode(parseInt(sig.substr(i, 2), 16));
+  var s = btoa(bytes).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  var link = "https://t.me/otcheticusbot?start=rk" + inv + "_" + s;
+  document.querySelectorAll("a.cta").forEach(function (a) { a.href = link; });
+})();
+</script></main><footer>Сервис «Отчётикус». Исполнитель: Каныгин Карен Каренович, ИНН 262509876581, плательщик налога на профессиональный доход (самозанятый).<br>Регион: Ставропольский край. Эл. почта: karen-kanygin@mail.ru. Телефон: +7 961 458-29-89. Поддержка: команда /support в Telegram-боте @otcheticusbot.</footer></body></html>

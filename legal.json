@@ -1,0 +1,22 @@
+{
+ "offer": {
+  "path": "offer",
+  "version": "1.1"
+ },
+ "refund": {
+  "path": "refund",
+  "version": "1.1"
+ },
+ "rules": {
+  "path": "rules",
+  "version": "1.0"
+ },
+ "privacy": {
+  "path": "privacy",
+  "version": "1.0"
+ },
+ "ad_consent": {
+  "path": "advertising-consent",
+  "version": "1.0"
+ }
+}
